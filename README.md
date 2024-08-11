@@ -4,6 +4,8 @@
 
 A simple interactive drum kit built with vanilla JavaScript, HTML, and CSS. This project allows users to play drum sounds by either clicking on the drum buttons or pressing the corresponding keys on their keyboard.
 
+### --> [View Project](https://anirudha-8.github.io/Drum-Kit/)
+
 ## ✨ Features
 
 - 🎹 Play drum sounds with keyboard keys (A, S, D, F, G, H, J, K, L)

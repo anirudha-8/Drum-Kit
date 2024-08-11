@@ -1,14 +1,25 @@
-window.addEventListener("keydown", (e) => {
-    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-    const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
-    console.log(key);
+function playSound(e) {
+    // Determine the key code: from a key press or a mouse click
+    const keyCode = e.keyCode || e.target.getAttribute('data-key');
+    const audio = document.querySelector(`audio[data-key="${keyCode}"]`);
+    const key = document.querySelector(`div[data-key="${keyCode}"]`);
 
-    // if audio is not, then return
     if (!audio) return;
     audio.currentTime = 0;
     audio.play();
+
     key.classList.add("playing");
-    setTimeout(() => {
-        key.classList.remove("playing");
-    }, 70); // 70ms => 0.07S
-})
+}
+
+function removeTransition(e) {
+    if (e.propertyName !== 'transform') return; // skip if it's not a transform event
+    this.classList.remove("playing");
+}
+
+const keys = document.querySelectorAll(".key");
+keys.forEach(key => {
+    key.addEventListener("transitionend", removeTransition);
+    key.addEventListener("click", playSound); // Listen for mouse clicks
+});
+
+window.addEventListener("keydown", playSound); // Listen for keyboard presses
