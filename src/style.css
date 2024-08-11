@@ -34,6 +34,10 @@ html {
 	background: rgba(0, 0, 0, 0.4);
 	text-shadow: 0 0 0.5rem black;
 	cursor: pointer;
+	ser-select: none; /* Prevents text selection */
+	-webkit-user-select: none; /* For Safari */
+	-moz-user-select: none; /* For Firefox */
+	-ms-user-select: none; /* For Internet Explorer and Edge */
 }
 
 .playing {
